@@ -8,10 +8,6 @@ from langchain_openai.llms import OpenAI # It could be any LLM that is already i
 
 import os
 import streamlit as st
-from utils import OPENAI_API_KEY
-import textwrap
-from typing_extensions import Concatenate
-
 
 
 with st.sidebar:
