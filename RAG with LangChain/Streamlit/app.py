@@ -12,8 +12,12 @@ from utils import OPENAI_API_KEY
 import textwrap
 from typing_extensions import Concatenate
 
-os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 
+
+with st.sidebar:
+    openai_api_key = st.text_input("OPENAI API Key", key="pdf_qa_api_key", type="password")
+
+os.environ["OPENAI_API_KEY"] = openai_api_key
 
 # Read and process the input data that is recieved from the pdf file
 st.title("Question your Document")
@@ -26,7 +30,7 @@ question = st.text_input(
     disabled=not uploaded_file,
 )
 
-if uploaded_file and question:
+if uploaded_file and question and openai_api_key:
     if not os.path.exists("tempDir"): os.mkdir("tempDir")
     with open(os.path.join("tempDir", uploaded_file.name), 'wb') as f:
         f.write(uploaded_file.getbuffer())
