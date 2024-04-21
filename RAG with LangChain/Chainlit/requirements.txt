@@ -1,0 +1,8 @@
+langchain
+langchain-community
+langchain_openai
+openai
+PyPDF2
+faiss-cpu
+tiktoken
+chainlit
